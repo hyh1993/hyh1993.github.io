@@ -93,7 +93,7 @@ input{ outline:none; border:none;}
 .s-field{ position:relative;}
 /*通用样式*/
 section{ padding: 20px 10px; border-bottom: 1px #e6e6e6 solid; cursor: pointer; }
-section:hover{ background: #e6e6e6; }
+section:hover{ background: #e6e6e6; box-shadow: #999 0px 0px 30px; }
 h1{ height:60px; margin:20px 0; font-size:24px;}
 .code{ font-size:18px; color:#000000; margin:0px 10px; border-left:2px solid #FC3; padding-left:10px;}
 hr{ border:none; border-bottom:1px solid #CCC;}
@@ -111,3 +111,4 @@ ul li{ font-size: 14px; color: #00CCCC; line-height: 30px; }
 .circular .circle span{ display: block; color: #aaa; margin-top: 12px;}
 .circular .circles{ text-align: center;}
 .circular .htmleaf-demo a{ display: inline-block; margin: 0.5em; padding: 0.6em 1em; border: 3px solid #1d7db1; font-weight: 700;}
+

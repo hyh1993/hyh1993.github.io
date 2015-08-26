@@ -1,16 +1,235 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>test by hyh1993</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">被吊打惨了</h1>
-    </section>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能输入</title>
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<script src="script/library/jquery-1.8.0.min.js"></script>
+<script src="script/library/laydate/laydate.js"></script>
+<script src="script/plugin/input.js"></script><!--自定义插件的js库-->
+<script src="script/application/main.js"></script>
+<style>
+body{ margin:20px;}
+h1{ height:60px; margin:20px 0; font-size:24px;}
+input{ width:140px;}
+.code{ font-size:12px; color:#999; margin:20px 10px; border-left:2px solid #FC3; padding-left:10px;}
+hr{ margin:30px 0; border:none; border-bottom:1px solid #CCC;}
+h2{ margin:30px 0;}
+</style>
+</head>
 
-  
-  </body>
+
+<body>
+
+<h1>去兜风，前端组件集合（类名统一为：s-）</h1>
+<h1>表单组件:</h1>
+
+
+<h2>输入框：</h2>
+<p class="code">
+输入框默认的宽度是140px，高度28px,1px的边框，如果有新的尺寸，请使用CSS覆盖<br/>
+</p>
+<input type="text" value="输入框" class="s-input"> 
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="text" value="" placeholder="输入提示" class="s-input">  
+
+<hr/>
+
+<h2>日历：</h2>
+<p class="code">
+日历使用插件layDate的,这里的样式只供参考<br/>
+</p>
+
+<input type="text" readonly class="s-data date" id="startDay"> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="text" value="" readonly class="s-data date" id="endDay"> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" class="s-btn-sma s-btn-w" value="搜索" id="search">
+<hr/>
+
+<h2>下拉插件：</h2> 
+<p class="code">
+必须给span加ID，需要加value值，通过 $("#ID").attr("value")获取选择的值<br/>
+placeholder 里面添加 描述信息，当span里面的值为空的时候，默认显示placeholer里面的值<br/>
+</p>
+
+<div class="s-input s-select">
+	<span placeholder="选择下拉" id="select" data="1">11</span>
+    <i class="s-ico s-ico-arrowDown"></i>
+    <ul>
+    	<li data="1">11</li>
+        <li data="2">22</li>
+        <li data="3">33</li>
+        <li data="4">44</li>
+        <li data="5">55</li>
+    </ul>
+</div>   
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-select">
+	<span placeholder="选择下拉" id="select2" data=""></span>
+    <i class="s-ico s-ico-arrowDown"></i>
+    <ul>
+    	<li data="sdfsdf">11</li>
+        <li data="2">22</li>
+        <li data="3">33</li>
+        <li data="4">44</li>
+        <li data="5">55</li>
+    </ul>
+</div> 
+
+<hr/>
+
+<h2>单选插件： </h2>
+<p class="code">
+必须给s-radio-state加自定义的className，通过 $("#className_checked").attr("value")获取选择的值<br/>
+className 相同的radio表示一类<br/>
+手动设置选中状态，可以设置 id = className_checked 为默认的选中的状态, 此ID已经被占用，不得添加其他名称的ID
+</p>
+
+<div class="s-input s-radio">
+	<div class="s-radio-state radioName" value="1" id="radioName_checked"></div>
+    <span>单程</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-radio">
+	<div class="s-radio-state radioName" value="2"></div>
+    <span>往返</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-radio">
+	<div class="s-radio-state radioName" value="3"></div>
+    <span>往返</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" class="s-btn-sma s-btn-w" value="获取radio值" id="getRadioVal">
+
+<hr/>
+
+<h2>多选插件： </h2>
+<p class="code">
+必须给s-checkbox-state加自定义的className，通过 arr = getSevenCheckboxValue($(".className_checked")); //返回数组,获取选择的值<br/>
+className 相同的checkbox表示一类<br/>
+手动设置选中状态，可以设置 class = className_checked 为默认的选中的状态, 此class已经被占用，不得添加同名class,设置 disabled 表示不可编辑
+</p>
+
+<div class="s-input s-checkbox" disabled>
+	<div class="s-checkbox-state checkboxName" data="CQ"></div>
+    <span>重庆</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-checkbox">
+	<div class="s-checkbox-state checkboxName" data="CD"></div>
+    <span>成都</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-checkbox">
+	<div class="s-checkbox-state checkboxName checkboxName_checked" data="NJ"></div>
+    <span>南京</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="s-input s-checkbox">
+	<div class="s-checkbox-state checkboxName" data="BJ"></div>
+    <span>北京</span>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<input type="button" class="s-btn-sma s-btn-w" value="获取checkbox值" id="getCheckboxVal">
+
+<hr/>
+
+<h2>按钮： </h2>
+<p class="code">
+按钮可以使用button 标签，也可以使用其他标签，为了兼容低版本的ie浏览器，建议使用a标签，或者单独使用hack
+</p>
+
+<input type="button" class="s-btn-sma s-btn-w" value="搜索机票">
+<input type="button" class="s-btn-mid s-btn-w" value="搜索机票">
+<input type="button" class="s-btn-max s-btn-w" value="搜索机票">
+
+<br/><br/>
+
+<input type="button" class="s-btn-sma s-btn-r" value="搜索机票">
+<input type="button" class="s-btn-mid s-btn-r" value="搜索机票">
+<input type="button" class="s-btn-max s-btn-r" value="搜索机票">
+
+
+<hr/>
+
+<h2>滑块插件： </h2>
+<p class="code">
+data里面填写一个对象 minData:215,maxData:3541,iniData:300 分别是 最小值，最大值，初始值<br/>
+通过 $("#ID i.minData"),$("#ID i.endData")来获取范围值
+</p>
+
+<div class="s-slider" data="minData:8279,maxData:10000,iniData:10000">
+	<span class="s-slider-tips"></span>
+	<div class="s-sliderBar">
+    	<em class="s-slider-bar"></em>
+    	<i class="s-ico s-ico-slider"></i>
+    </div>
+</div>
+
+<br/><br/>
+
+<div class="s-slider" data="minData:215,maxData:3541,iniData:2000">
+	<span class="s-slider-tips"></span>
+	<div class="s-sliderBar">
+    	<em class="s-slider-bar"></em>
+    	<i class="s-ico s-ico-slider"></i>
+    </div>
+</div>
+
+<hr/>
+
+<h2>表单验证插件： </h2>
+<p class="code">
+data-validate里面填写一个json素组 分别是 验证类型:提示内容<br/>
+只能验证input输入框，class需要加上 s-validate ,如果不加该class,表示不参与验证。input必须使用s-field包裹起来<br/>
+如果加入form标签，submit时可进行统一验证，如果没加入form标签，只验证单个<br/>
+</p>
+
+<br/><br/>
+
+<form class="s-form">
+
+<div class="s-field">
+	<input type="text" value="" placeholder="不能为空，只能输入字母" class="s-input s-validate" data-validate="notempty:'不能为空！',letter:'只能输入字母!'">
+</div>
+
+<br/><br/>
+
+<div class="s-field">
+	<input type="text" value="" placeholder="不能为空" class="s-input s-validate" data-validate="notempty:'不能为空！'">
+</div>    
+    
+<br/><br/>
+
+<input type="submit" class="s-btn-sma s-btn-w" value="验证">
+
+</form>
+<br/><br/>
+
+</body>
+
 </html>

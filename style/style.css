@@ -1,9 +1,7 @@
-/**
-*	去兜风 - 2015.01
-*/
+
 /* ---------------CSS 格式化------------------------ */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {padding: 0; margin: 0; font-family:'微软雅黑'}
-a{text-decoration:none;}
+a{text-decoration:none; color: #000000;}
 table { border-spacing: 0;}
 fieldset,img { border: 0;}
 address,caption,cite,code,dfn,em,strong,th,var {font-weight: normal; font-style: normal;}
@@ -93,3 +91,23 @@ input{ outline:none; border:none;}
 
 /*表单验证*/
 .s-field{ position:relative;}
+/*通用样式*/
+section{ padding: 20px 10px; border-bottom: 1px #e6e6e6 solid; cursor: pointer; }
+section:hover{ background: #e6e6e6; }
+h1{ height:60px; margin:20px 0; font-size:24px;}
+.code{ font-size:18px; color:#000000; margin:0px 10px; border-left:2px solid #FC3; padding-left:10px;}
+hr{ border:none; border-bottom:1px solid #CCC;}
+h2{ margin:30px 0;}
+ul{ padding-left: 20px; margin-top: 10px;}
+ul li{ font-size: 14px; color: #00CCCC; line-height: 30px; }
+
+/*首页*/
+.index{ padding:0px; margin: 0px;}
+
+/*圆形加载进度条*/
+.circular .center{ text-align: center;}
+.circular .circle{ width: 100px; margin: 6px 6px 20px; display: inline-block; position: relative; text-align: center; line-height: 1.2; } 
+.circular .circle strong{ position: absolute; top: 30px; left: 0; width: 100%; text-align: center; line-height: 40px; font-size: 30px; }
+.circular .circle span{ display: block; color: #aaa; margin-top: 12px;}
+.circular .circles{ text-align: center;}
+.circular .htmleaf-demo a{ display: inline-block; margin: 0.5em; padding: 0.6em 1em; border: 3px solid #1d7db1; font-weight: 700;}

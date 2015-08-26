@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML5 canvas带渐变色的圆形进度条动画</title>
+	<link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script src="../script/library/jquery-1.8.0.min.js"></script>
+</head>
+<body class="circular">
+	<div class="htmleaf-container">
+		<div class="htmleaf-content bgcolor-8">
+			<div class="circles">
+			    <div class="first circle">
+			        <span>1</span>
+			    </div>
+
+			    <div class="second circle">
+			        <strong></strong>
+			        <span>2</span>
+			    </div>
+			    <div class="third circle">
+			        <strong></strong>
+			        <span>3</span>
+			    </div>
+			    <div class="forth circle">
+			    <strong></strong>
+			        <span>4</span>
+			    </div>
+
+			    <div class="fifth circle">
+			        <span>5</span>
+			    </div>
+			</div>
+			<div class="htmleaf-demo center">
+			  <a href="#" id="demo-reset">Reset</a>
+			  <a href="#" id="demo-play">Play</a>
+			</div>
+		</div>
+	</div>
+	<section>
+        <p class="code">
+            使用方法
+        </p>
+        <ul>
+        	<li>
+            	<code>
+            		$('#circle').circleProgress({
+            		        value: 0.75,
+            		        size: 80,
+            		        fill: {
+            		            gradient: ["red", "orange"]
+            		        }
+            		    });
+            	</code>
+        	</li>
+        </ul>
+    </section>
+    <section>
+        <p class="code">
+            配置参数
+        </p>
+        <ul>
+        	<li>value-----这是唯一一个必填参数。值从0.0到1.0，默认值为0</li>
+        	<li>size-----canvas的大小，单位像素，默认值100</li>
+        	<li>startAngle-----初始角度，默认值为-Math.PI</li>
+        	<li>reverse-----是否反向绘制圆弧和动画，默认值为false</li>
+        	<li>thickness-----进度条圆弧的宽度。默认它自动为size的1/14大小，你可以设置你需要的值。默认值为auto</li>
+        	<li>lineCap-----圆弧的线头样式："butt"、"round"和"square"。详细信息看这里。默认值为"butt"</li>
+        	<li>fill-----圆弧填充的配置。</li>
+        	<li>emptyFill-----空圆弧的颜色。默认值为"rgba(0, 0, 0, .1)"</li>
+        	<li>animation-----动画配置。可以参考jQuery animations。你可以设置为false来禁止动画。默认值：{ duration: 1200, easing: "circleProgressEase" }。"circleProgressEase"是一个ease-in-out-cubic easing动画效果</li>
+        	<li>animationStartValue-----默认进度条动画会在0.0开始，结束与value处。调用该参数可以直接动画。如果需要制作反向动画就将animationStartValue的值设置为1.0。你可以指定0.0到1.0之间的任何数值。默认值为0.0</li>
+        	<li></li>
+        	<li></li>
+        </ul>
+    </section>
+    <!-- <a href="http://www.htmleaf.com/html5/html5-canvas/201505271918.html"></a> -->
+	<script src="../script/plugin/circle-progress.js"></script>
+	<script src="../script/plugin/examples.js"></script>
+</body>
+</html>

@@ -17,7 +17,7 @@
     }
     .swiper-container {
         width: 500px;
-        height: 300px;
+        height: auto;
         margin: 20px auto;
     }
     .swiper-slide {
@@ -51,6 +51,7 @@
     </style>
 </head>
 <body>
+	<h1>假装有时间写CSS........先将就看</h1>
 	<div class="list-max">
 		<ul>
 			<li class="list list-1 list-active" data-str="0">list1</li>
@@ -60,28 +61,44 @@
 	</div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" data-str="1">Slide 1</div>
-            <div class="swiper-slide" data-str="2">Slide 2</div>
-            <div class="swiper-slide" data-str="3">Slide 3</div>
+            <div class="swiper-slide" data-str="0" style="height:200px">Slide 1</div>
+            <div class="swiper-slide" data-str="1" style="height:300px">Slide 2</div>
+            <div class="swiper-slide" data-str="2" style="height:400px">Slide 3</div>
         </div>
         <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination" style="display:none;"></div>
     </div>
 </body>
 <script src="../script/plugin/swiper.js"></script>
-<script>        
+<script>
+
 $(document).ready(function () {
 	// 初始化swiper
+
 	var mySwiper = new Swiper ('.swiper-container',{
     paginationClickable: true,
     pagination: '.swiper-pagination',
+    onSlideChangeEnd: function(swiper){
+     	var xx = $(".swiper-slide-active").attr("data-str");
+     	$(".list-active").removeClass("list-active");
+     	$(".list-max").children("ul").children("li").eq(xx).addClass("list-active");
+     	resetH();
+    }
 	})
+		resetH();
 	// 点击list事件
 	$(".list").click(function(){
 		var $this = $(this);
 		var xx = $this.attr("data-str");
+		$(".list-active").removeClass("list-active");
+		$this.addClass("list-active");
 		$(".swiper-pagination").children("span").eq(xx).trigger("click");
 	})
+	//重置高度
+	function resetH(){
+		var xx = $(".swiper-slide-active").height();
+		$(".swiper-wrapper").height(xx);
+	}
 })        
 </script>
 </html>

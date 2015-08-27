@@ -4,30 +4,62 @@
 <meta charset="utf-8">
 <title>智能输入</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
+<link rel="stylesheet" type="text/css" href="../style/londing.css">
+<link rel="stylesheet" type="text/css" href="../style/first-img.css">
+<script type="text/javascript" src="../application/jqurey.js"></script>
 <style>
 </style>
 </head>
 <body>
-    <a href="http://cssload.net/">
+    <a href="http://cssload.net/" target="_Blank">
         <section>
             <p class="code">
             	Londing图片
             </p>
+            <div class="wrapper">
+                <div class="cssload-loader"></div>
+            </div>
             <ul>
                 <li>纯CSS实现Londing图标</li>
             </ul>
         </section>
     </a>
-    <a href="http://ademilter.com/lab/liffect/">
+    <a href="http://ademilter.com/lab/liffect/" target="_Blank">
         <section>
             <p class="code">
             	图片加载效果
             </p>
+            <ul data-liffect="starwars" class="clearfix">
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+                <li><img src="../images/github-img.png" ></li>
+            </ul>
             <ul>
                 <li>纯CSS实现图片效果</li>
             </ul>
         </section>
     </a>
 </body>
-
+<script>
+$(document).ready(function () {
+    $("ul[data-liffect] li").each(function (i) {
+        $(this).attr("style", "-webkit-animation-delay:" + i * 300 + "ms;"
+                + "-moz-animation-delay:" + i * 300 + "ms;"
+                + "-o-animation-delay:" + i * 300 + "ms;"
+                + "animation-delay:" + i * 300 + "ms;");
+        if (i == $("ul[data-liffect] li").size() -1) {
+            $("ul[data-liffect]").addClass("play")
+        }
+    });
+});
+</script>
 </html>

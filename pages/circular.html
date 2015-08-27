@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HTML5 canvas带渐变色的圆形进度条动画</title>
 	<link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../style/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../style/default.css">
     <script src="../script/library/jquery-1.8.0.min.js"></script>
 </head>
 <body class="circular">
@@ -77,7 +79,133 @@
         </ul>
     </section>
     <!-- <a href="http://www.htmleaf.com/html5/html5-canvas/201505271918.html"></a> -->
+    <!-- 更加轻量的圆形进度条 -->
+    <div class="htmleaf-content">
+        <div class="clearfix">
+            <canvas class="loader"></canvas>
+            <canvas class="loader2"></canvas>
+            <canvas class="loader3"></canvas>
+            <canvas class="loader4"></canvas>
+            <canvas class="loader5"></canvas>
+            <a href="javascript:;" class="customtrigger" style="cursor: pointer;">click</a>
+        </div>
+    </div>
+    <section>
+        <p class="code">
+            使用方法
+        </p>
+        <ul>
+            <li>$('.loader').ClassyLoader()</li>
+        </ul>
+    </section>
+    <section>
+        <p class="code">
+            手动触发
+        </p>
+        <ul>
+            <li>var loader = $('.loader').ClassyLoader({animate: false, percentage: 0 });<静态的圆圈></li>
+            <li>$('.customtrigger').on('click', function() {loader.draw(100); });<触发动画></li>
+        </ul>
+    </section>
+    <section>
+        <p class="code">
+            配置参数
+        </p>
+        <ul>
+            <li>width-----圆形进度条外层DIV的宽度，单位像素，默认值200。</li>
+            <li>height-----圆形进度条外层DIV的高度，单位像素，默认值200。</li>
+            <li>animate-----圆形进度条是否动画，默认值为true。</li>
+            <li>percentage-----圆形进度条的百分比值，0-100之间，默认值为100。</li>
+            <li>speed-----一次动画循环的时间，单位毫秒，默认值为1。</li>
+            <li>showRemaining-----是否显示剩余的百分比，默认值为true。</li>
+            <li>start-----开始的角度，默认值为left，可选值有:left，right，top和bottom。</li>
+            <li>fontFamily-----百分比数值的字体，默认值为Helvetica。</li>
+            <li>showText-----是否显示百分比数值文本，默认值为true。</li>
+            <li>fontSize-----百分比数值的字体尺寸，单位像素，默认值50px。</li>
+            <li>roundedLine-----是否使用圆角，单位像素，默认值false。</li>
+            <li>diameter-----圆形进度条的直径，单位像素，默认值80。</li>
+            <li>fontColor-----百分比文本的颜色，可以是任何CSS颜色，hex，rgb，rgba，hsl，hsla。默认值为rgba(25, 25, 25, 0.6)。</li>
+            <li>lineColor-----圆形进度条的线条颜色，默认值为rgba(55, 55, 55, 1)。</li>
+            <li>remainingLineColor-----剩余百分比的线条颜色（如果showRemaining为true）。默认值为rgba(55, 55, 55, 0.4)。</li>
+            <li>lineWidth-----圆形进度条的线条宽度，默认值为5。</li>
+        </ul>
+    </section>
+    <section>
+        <p class="code">
+            方法
+        </p>
+        <ul>
+            <li>draw()-----使进度条动画到指定的进度。</li>
+            <li>setPercent()-----设置圆形进度条的百分比值，你可以在它后面使用draw()方法使进度条动画起来。</li>
+            <li>getPercent()-----返回圆形进度条的百分比值。</li>
+        </ul>
+    </section>
+    <!-- <a href="http://www.htmleaf.com/html5/html5-canvas/201508042353.html"></a> -->
 	<script src="../script/plugin/circle-progress.js"></script>
 	<script src="../script/plugin/examples.js"></script>
+    <script src="../script/plugin/jquery.classyloader.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.loader').ClassyLoader({
+                    percentage: 100,
+                    speed: 20,
+                    fontSize: '50px',
+                    diameter: 80,
+                    lineColor: 'rgba(155,155,155,1)',
+                    remainingLineColor: 'rgba(200,200,200,0.4)',
+                    lineWidth: 10
+                });
+                $('.loader2').ClassyLoader({
+                    percentage: 60,
+                    speed: 8,
+                    diameter: 50,
+                    fontSize: '20px',
+                    showText: false,
+                    roundedLine: true,
+                    fontColor: 'rgba(73, 125, 164, 0.3)',
+                    lineColor: 'rgba(73, 125, 164, 1)',
+                    remainingLineColor: 'rgba(73, 125, 164, 0.1)',
+                    lineWidth: 40
+                });
+                $('.loader3').ClassyLoader({
+                    speed: 40,
+                    fontSize: '36px',
+                    fontFamily: 'Georgia',
+                    fontColor: 'rgba(0,0,0,0.4)',
+                    lineColor: 'rgba(255,0,0,0.4)',
+                    lineWidth: 1,
+                    remainingLineColor: 'rgba(0,0,0,0.1)'
+                });
+                $('.loader4').ClassyLoader({
+                    width: 200,
+                    height: 200,
+                    speed: 20,
+                    diameter: 50,
+                    showRemaining: true,
+                    fontSize: '20px',
+                    fontFamily: 'Georgia',
+                    fontColor: 'rgba(0,0,0,0.4)',
+                    lineColor: 'rgba(0,0,0,0.4)',
+                    percentage: 34,
+                    remainingLineColor: 'rgba(0,0,0,0.1)'
+                });
+                var loader = $('.loader5').ClassyLoader({
+                    animate:false,
+                    speed: 10,
+                    diameter: 80,
+                    fontSize: '30px',
+                    fontFamily: 'Courier',
+                    fontColor: 'rgba(0,0,0,0.4)',
+                    lineColor: 'rgba(255,175,255,0.7)',
+                    percentage: 0,
+                    lineWidth: 10,
+                    start: 'top',
+                    remainingLineColor: 'rgba(200,200,200,0.1)'
+                });
+                $('.customtrigger').on('click',function(){
+                    loader.draw(100); 
+                });
+            });
+        </script>
 </body>
 </html>

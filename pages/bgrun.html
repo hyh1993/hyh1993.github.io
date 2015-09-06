@@ -20,6 +20,7 @@
         </section>
 <script>
 var $x = 0;
+//向左移动
 function timerL(){
 	$x+=0.3;
 	var $xx =$x+"px"+" "+"0px";
@@ -30,6 +31,7 @@ function timerL(){
 	$('.img').css("background-position",$xx)
 	setTimeout('timerL()',10)
 }
+// 向右移动
 function timerR(){
 	$x-=0.3;
 	var $xx =$x+"px"+" "+"0px";

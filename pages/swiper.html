@@ -16,7 +16,7 @@
         padding: 0;
     }
     .swiper-container {
-        width: 500px;
+        width: 600px;
         height: auto;
         margin: 20px auto;
     }
@@ -39,34 +39,38 @@
         -webkit-align-items: center;
         align-items: center;
     }
+    .list-max ul{
+    	padding: 0px;
+    }
     .list-max ul li{
     	float: left;
-    	width: 50px;
+    	width: 200px;
     	cursor: pointer;
-    	margin-left: 20px;
+    	text-align: center;
     }
     .list-active{
-    	background: red;
+    	color: red;
     }
     </style>
 </head>
 <body>
 	<h1>假装有时间写CSS........先将就看</h1>
-	<div class="list-max">
-		<ul>
-			<li class="list list-1 list-active" data-str="0">list1</li>
-			<li class="list list-2" data-str="1">list2</li>
-			<li class="list list-3" data-str="2">list3</li>
-		</ul>
-	</div>
+	
     <div class="swiper-container">
+    	<div class="list-max">
+    		<ul class="clearfix">
+    			<li class="list list-1 list-active" data-str="0">list1</li>
+    			<li class="list list-2" data-str="1">list2</li>
+    			<li class="list list-3" data-str="2">list3</li>
+    		</ul>
+    	</div>
         <div class="swiper-wrapper">
-            <div class="swiper-slide" data-str="0" style="height:200px">Slide 1</div>
-            <div class="swiper-slide" data-str="1" style="height:300px">Slide 2</div>
-            <div class="swiper-slide" data-str="2" style="height:400px">Slide 3</div>
+            <div class="swiper-slide" data-str="0" style="height:200px;">height:200px</div>
+            <div class="swiper-slide" data-str="1" style="height:300px;">height:300px</div>
+            <div class="swiper-slide" data-str="2" style="height:200px;">height:200px</div>
         </div>
         <!-- 如果需要分页器 -->
-            <div class="swiper-pagination" style="display:none;"></div>
+            <div class="swiper-pagination" ></div>
     </div>
 </body>
 <script src="../script/plugin/swiper.js"></script>
@@ -74,7 +78,6 @@
 
 $(document).ready(function () {
 	// 初始化swiper
-
 	var mySwiper = new Swiper ('.swiper-container',{
     paginationClickable: true,
     pagination: '.swiper-pagination',
@@ -85,7 +88,7 @@ $(document).ready(function () {
      	resetH();
     }
 	})
-		resetH();
+	resetH();
 	// 点击list事件
 	$(".list").click(function(){
 		var $this = $(this);

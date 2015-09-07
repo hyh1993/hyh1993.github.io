@@ -6,12 +6,13 @@
     <script src="../script/library/jquery-1.8.0.min.js"></script>
 <style>
 .img{ width: 300px; height: 100px; overflow: hidden; background: url("../images/github-img.png");}
+.code span{ color: red;}
 </style>
 </head>
 <body>
         <section>
             <p class="code">
-            	背景来回滚，看起来很厉害的样子，200px为界限
+            	背景来回滚，看起来很厉害的样子，200px为界限-------------background-position<span></span>
             </p>
             <ul>
                 <li><div class="img"></div>
@@ -28,8 +29,9 @@ function timerL(){
 		timerR();
 		return false;
 	}
-	$('.img').css("background-position",$xx)
-	setTimeout('timerL()',10)
+	$('.code span').text($xx);
+	$('.img').css("background-position",$xx);
+	setTimeout('timerL()',10);
 }
 // 向右移动
 function timerR(){
@@ -39,8 +41,9 @@ function timerR(){
 		timerL();
 		return false;
 	}
-	$('.img').css("background-position",$xx)
-	setTimeout('timerR()',10)
+	$('.code span').text($xx);
+	$('.img').css("background-position",$xx);
+	setTimeout('timerR()',10);
 }
 timerR();
 </script>
